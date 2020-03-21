@@ -17,3 +17,24 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+###############  1 VARIANT  #################
+
+for i in range(32, 128):
+    print(f'{i:<3} - {chr(i)}   ', end='')
+    if (i - 1) % 10 == 0:
+        print()
+print('\n1 variant is finished.')
+print()
+
+###############  2 VARIANT  #################
+'''Для любых границ и с использованием счетчика пар'''
+
+START, FINISH = [int(x) for x in input('Enter start and stop values by space: ').split()]
+COUNT = 0
+for i in range(32, 128):
+    COUNT += 1
+    print(f'{i:<3} - {chr(i)}   ', end='')
+    if COUNT % 10 == 0:
+        print()
+print('\n2 variant is finished.')

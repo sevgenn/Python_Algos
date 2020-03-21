@@ -10,3 +10,27 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+##### Ноль не включал в ряд натуральных чисел  #####
+
+QUANTITY = int(input('Введите количество чисел - '))
+MAXIMUM = 0
+
+MAX_SUM = 0
+for i in range(1, QUANTITY + 1):
+    FLAG = True
+    while FLAG:
+        NUMBER = int(input('Введите очередное число - '))
+        if NUMBER == 0:
+            print('"0" рассматриваем как ненатуральное число. Введите еще раз.')
+            continue
+        FLAG = False
+    SUM = 0
+    CONTROL_NUMBER = NUMBER
+    while NUMBER > 0:
+        SUM += NUMBER % 10
+        NUMBER //= 10
+    if SUM > MAX_SUM:
+        MAX_SUM = SUM
+        MAXIMUM = CONTROL_NUMBER
+print(f'Наибольшее число по сумме цифр: {MAXIMUM}, сумма его цифр: {MAX_SUM}')

@@ -32,3 +32,40 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+###################   1 VARIANT   ######################
+
+LIST_OPERATIONS = ["+", "-", "*", "/"]
+while True:
+    OPERATION = input(
+        'Enter a symbol of the arithmetical operator ("+", "-", "*", "/") or "0" to exit: ')
+    if OPERATION == '0':
+        break
+    elif OPERATION not in LIST_OPERATIONS:
+        print('What do you mean? Try again.')
+        continue
+    else:
+        while True:
+            try:
+                FIRST_NUMBER = float(input('Enter the first number: '))
+                SECOND_NUMBER = float(input('Enter the second number: '))
+
+                if OPERATION == '+':
+                    RESULT = FIRST_NUMBER + SECOND_NUMBER
+                elif OPERATION == '-':
+                    RESULT = FIRST_NUMBER - SECOND_NUMBER
+                elif OPERATION == '*':
+                    RESULT = FIRST_NUMBER * SECOND_NUMBER
+                else:
+                    RESULT = FIRST_NUMBER / SECOND_NUMBER
+                print(f'{FIRST_NUMBER} {OPERATION} {SECOND_NUMBER} = {RESULT}')
+                break
+            except ZeroDivisionError:
+                print('Do you try to divide by zero? Take another divisor, please.')
+            except ValueError:
+                print('Enter a NUMBER, please.')
+                continue
+print('Finish.')
+
+
+###################   2 VARIANT   ######################
