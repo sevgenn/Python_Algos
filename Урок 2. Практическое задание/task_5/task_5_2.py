@@ -17,3 +17,16 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def ascii_table(num_start, num_stop, count=0):
+    '''Функция рекурсивно выводит символы таблицы ASCII'''
+    count += 1
+    if num_start <= num_stop and count % 11 != 0:
+        print(f'{num_start:<3} - {chr(num_start)}   ', end='')
+        ascii_table(num_start+1, num_stop, count)
+    elif num_start <= num_stop and count % 11 == 0:
+        print()
+        ascii_table(num_start, num_stop)
+
+ascii_table(32, 127)

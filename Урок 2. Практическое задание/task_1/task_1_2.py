@@ -33,3 +33,68 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def operators():
+    '''this function calls two numbers'''
+    global FIRST_NUMBER
+    global SECOND_NUMBER
+    while True:
+        try:
+            FIRST_NUMBER = float(input('Enter the first number: '))
+            SECOND_NUMBER = float(input('Enter the second number: '))
+            break
+        except ValueError:
+            print('Enter a NUMBER, please.\n')
+
+
+def add(x, y):
+    '''This function adds two numbers'''
+    print(f'{x} + {y} = {x + y}')
+
+
+def subtract(x, y):
+    '''This function subtracts two numbers'''
+    print(f'{x} - {y} = {x - y}')
+
+
+def multiply(x, y):
+    '''This function multiplies two numbers'''
+    print(f'{x} * {y} = {x * y}')
+
+
+def divide(x, y):
+    '''This function divides two numbers'''
+    print(f'{x} / {y} = {x / y}')
+
+
+def calc():
+    '''This function return result of arithmetical operations'''
+    list_operations = ["+", "-", "*", "/"]
+    operation = input('Enter a symbol of the arithmetical operator'
+                      '("+", "-", "*", "/") or "0" to exit: ')
+    if operation == '0':
+        print('Finish.')
+        return None
+    elif operation not in list_operations:
+        print('What do you mean? Try again.\n')
+    else:
+        operators()
+        if operation == '+':
+            add(FIRST_NUMBER, SECOND_NUMBER)
+        elif operation == '-':
+            subtract(FIRST_NUMBER, SECOND_NUMBER)
+        elif operation == '*':
+            multiply(FIRST_NUMBER, SECOND_NUMBER)
+        elif operation == '/':
+            while True:
+                try:
+                    divide(FIRST_NUMBER, SECOND_NUMBER)
+                    break
+                except ZeroDivisionError:
+                    print('Do you try to divide by zero? Take another divisor, please.\n')
+                    operators()
+    return calc()                           # рекурсивный вызов
+
+
+calc()

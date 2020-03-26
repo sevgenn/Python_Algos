@@ -14,3 +14,30 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+##############   1 VARIANT   #####################
+
+def inverse_num(num, inverse_number=''):
+    '''Рекурсивная функция, переворачивающая исходное число'''
+    if num > 0:
+        inverse_number += str(num % 10) + inverse_num(num // 10)
+    return inverse_number
+
+
+NUM = int(input('Enter some natural number: '))
+if NUM == 0:
+    print(f'Перевернутое число: 0')
+else:
+    print(f'Перевернутое число: {inverse_num(NUM)}')
+
+##############   2 VARIANT   #####################
+
+def inverse_num_2(num):
+    '''Рекурсивная функция, переворачивающая исходное число'''
+    if num == 0:
+        return 0
+    return str(num % 10) + inverse_num(num // 10)
+
+
+NUM = int(input('Enter some natural number: '))
+print(f'Перевернутое число: {inverse_num_2(NUM)}')

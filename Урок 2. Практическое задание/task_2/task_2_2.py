@@ -15,3 +15,33 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+#######  1 VARIANT  #######
+
+def odd(num):
+    '''Рекурсивная функция подсчета нечетных цифр числа'''
+    if num == 0:
+        return 0
+    return num % 10 % 2 + odd(num // 10)
+
+
+NUM = input('Enter some natural number: ')
+ODD = odd(int(NUM))
+print(f'Количество четных и нечетных цифр в числе равно: ({len(NUM) - ODD}, {ODD})')
+
+#######  2 VARIANT  #######
+
+def even_odd(num, even=0, odd=0):
+    '''Рекурсивная функция подсчета четных и нечетных цифр числа'''
+    if num == 0:
+        return (even, odd)
+    if num % 10 % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+    num //= 10
+    return even_odd(num, even, odd)
+
+
+NUM = int(input('Enter some natural number: '))
+print(f'Количество четных и нечетных цифр в числе равно: {even_odd(NUM)}')

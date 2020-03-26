@@ -8,3 +8,19 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def sum_sequence(num):
+    '''Функция вычисляет сумму членов последовательности 1 -0.5 0.25 -0.125...'''
+    if num == 0:
+        return 0
+    return 1 / (-2) ** (num - 1) + sum_sequence(num - 1)
+
+
+while True:
+    NUM = int(input('Введите количество элементов: '))
+    print(f'Количество элементов - {NUM}, их сумма - {sum_sequence(NUM)}')
+    QUERY = input('Continue (Y) or exit (N): ')
+    if QUERY.lower() == 'n':
+        break
+print("Finish.")
