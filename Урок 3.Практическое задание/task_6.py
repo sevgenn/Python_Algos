@@ -13,3 +13,39 @@
 Массив: [88, 58, 50, 77, 49, 6, 42, 67, 14, 79]
 Сумма элементов между минимальным (6)  и максимальным (88) элементами: 234
 """
+
+
+
+"""Для случая повторяющихся элементов [8, 8, 8, 7, 7, 8, 8] или 
+[8, 6, 8, 7, 7, 8, 8] требуется уточнить условие.
+В общем случае уникальных элементов: """
+
+SEQ = [88, 58, 50, 77, 49, 6, 42, 67, 14, 79]
+
+############   1 VARIANT   ##############
+
+START = min(SEQ.index(max(SEQ)), SEQ.index(min(SEQ)))
+STOP = max(SEQ.index(max(SEQ)), SEQ.index(min(SEQ)))
+SUM_ITEMS = 0
+if START == STOP:
+    print('Все элементы равны.')
+else:
+    for i in range(START+1, STOP):
+        SUM_ITEMS += SEQ[i]
+
+    print(f'Сумма элементов между минимальным ({min(SEQ)}) и '
+          f'максимальным ({max(SEQ)}) элементами: {SUM_ITEMS}.')
+print()
+
+############   2 VARIANT   ##############
+
+START = min(SEQ.index(max(SEQ)), SEQ.index(min(SEQ)))
+STOP = max(SEQ.index(max(SEQ)), SEQ.index(min(SEQ)))
+if START == STOP:
+    print('Все элементы равны.')
+else:
+    SUM_ITEMS = sum(SEQ[START+1 : STOP])
+
+    print(f'Сумма элементов между минимальным ({min(SEQ)}) и '
+          f'максимальным ({max(SEQ)}) элементами: {SUM_ITEMS}.')
+print('Finish.')

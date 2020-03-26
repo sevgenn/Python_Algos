@@ -10,3 +10,21 @@
 Пример:
 Исходный массив: [8, 3, 15, 6, 4, 2], результат: [0, 3, 4, 5]
 """
+
+from random import randint
+import numpy
+
+################  С заданным массивом   ###################
+
+ARRAY = [8, 3, 15, 6, 4, 2]
+print([i for i in range(len(ARRAY)) if ARRAY[i] % 2 == 0])
+print()
+
+################  Со сгенерированным массивом   ###################
+
+NUM = int(input('Enter the length of array - '))
+# ARRAY_RANDOM = [randint(0, 100) for _ in range(NUM)]      # варианты генерации
+ARRAY_RANDOM = numpy.random.randint(0, 100, NUM)
+print(f'Исходный массив: {ARRAY_RANDOM}')
+print(f'Результат: {[i for i in range(len(ARRAY_RANDOM)) if ARRAY_RANDOM[i] % 2 == 0]}')
+print()
