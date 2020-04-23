@@ -8,3 +8,52 @@
 Исходный - [46.11436617832828, 41.62921998361278, 18.45859540989644, 12.128870723745806, 8.025098788570562]
 Отсортированный - [8.025098788570562, 12.128870723745806, 18.45859540989644, 41.62921998361278, 46.11436617832828]
 """
+
+
+import random
+
+
+def merge(A, B):
+    """ Сливает два массива А и В в один С """
+    C = [0] * (len(A) + len(B))
+    i = k = n = 0
+    while i < len(A) and k < len(B):
+        if A[i] <= B[k]:
+            C[n] = A[i]
+            i += 1
+            n += 1
+        else:
+            C[n] = B[k]
+            k += 1
+            n += 1
+    while i < len(A):
+        C[n] = A[i]
+        i += 1
+        n += 1
+    while k < len(B):
+        C[n] = B[k]
+        k += 1
+        n += 1
+    return C
+
+
+def merge_sort(A):
+    """Рекурсия - сортирует массив и сливает отсортированные части"""
+    if len(A) <= 1:
+        return
+    middle = len(A) // 2
+    L = A[:middle]
+    R = A[middle:]
+    merge_sort(L)
+    merge_sort(R)
+    C = merge(L, R)
+    for i in range(len(A)):
+        A[i] = C[i]
+
+N = int(input('Введите число элементов: '))
+ORIG_LIST = [random.random()*50 for _ in range(N)]
+print(f'Исходный массив: \n{ORIG_LIST}')
+merge_sort(ORIG_LIST)
+print(f'Отсортированный массив: \n{ORIG_LIST}')
+
+"""Сложность алгоритма всегда N*log N"""
