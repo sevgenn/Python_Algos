@@ -5,6 +5,19 @@
 '''
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import hashlib
 
 STR_ORIGINAL = input('Enter the string - ').lower()
